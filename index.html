@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Growth | Personal Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- WELCOME PAGE -->
+    <section id="welcomePage" class="page welcome-page">
+        <div class="welcome-card">
+            <p class="small-heading">Welcome! 👋</p>
+            <h1>Welcome to <span>Career Growth</span></h1>
+            <h2>Grow With Us 🚀</h2>
+            <p>
+                Build your professional identity, create your digital resume,
+                showcase your skills and projects, and connect with career
+                opportunities through one smart platform.
+            </p>
+            <button class="primary-btn" onclick="enterCareerGrowth()">
+                ✨ Enter Career Growth
+            </button>
+        </div>
+    </section>
+
+    <!-- HOME PAGE -->
+    <section id="homePage" class="page home-page hidden">
+
+        <nav class="navbar">
+            <div class="logo">✦ CAREER GROWTH</div>
+            <span class="nav-tag">Your Future Starts Here</span>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-content">
+
+                <p class="small-heading">
+                    BUILD YOUR CAREER WITH CONFIDENCE
+                </p>
+
+                <h1>Build Your <span>Future.</span></h1>
+
+                <h2 class="typing-heading">
+                    Grow With Us
+                    <span id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </h2>
+
+                <p>
+                    Career Growth helps students, freshers and professionals
+                    create a powerful digital career identity. Build your resume,
+                    showcase your work and allow recruiters to discover your talent.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="primary-btn" onclick="showAuth('login')">
+                        🔐 Login
+                    </button>
+
+                    <button class="secondary-btn" onclick="showAuth('register')">
+                        ✨ Create Account
+                    </button>
+
+                    <button class="outline-btn" onclick="openRecruiterFromHome()">
+                        🎯 Recruiter Mission Mode
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTH PAGE -->
+    <section id="authPage" class="page auth-page hidden">
+
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← Back
+        </button>
+
+        <div class="auth-card">
+
+            <!-- LOGIN FORM -->
+            <div id="loginForm">
+
+                <p class="small-heading">WELCOME BACK</p>
+                <h1>Welcome Back!</h1>
+                <p>Login to continue your career journey.</p>
+
+                <form onsubmit="loginUser(event)">
+
+                    <input type="text" id="loginUsername"
+                           placeholder="Enter username" required>
+
+                    <input type="password" id="loginPassword"
+                           placeholder="Enter password" required>
+
+                    <button type="submit" class="primary-btn full-btn">
+                        Login
+                    </button>
+
+                </form>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="#" onclick="showAuth('register'); return false;">
+                        Register
+                    </a>
+                </p>
+
+            </div>
+
+            <!-- REGISTER FORM -->
+            <div id="registerForm" class="hidden">
+
+                <p class="small-heading">START YOUR JOURNEY</p>
+                <h1>Create Account</h1>
+                <p>Join Career Growth and build your professional identity.</p>
+
+                <form onsubmit="registerUser(event)">
+
+                    <input type="text" id="registerName"
+                           placeholder="Full name" required>
+
+                    <input type="text" id="registerUsername"
+                           placeholder="Choose username" required>
+
+                    <input type="email" id="registerEmail"
+                           placeholder="Email address" required>
+
+                    <input type="password" id="registerPassword"
+                           placeholder="Create password"
+                           minlength="6" required>
+
+                    <button type="submit" class="primary-btn full-btn">
+                        Create Account
+                    </button>
+
+                </form>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="#" onclick="showAuth('login'); return false;">
+                        Login
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- STUDENT DASHBOARD -->
+    <section id="dashboardPage" class="page dashboard-page hidden">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">✦ Career Growth</div>
+
+            <p class="sidebar-user">
+                Hello, <span id="sidebarUsername">Student</span>
+            </p>
+
+            <button onclick="showDashboardSection('overview')">
+                🏠 Overview
+            </button>
+
+            <button onclick="showDashboardSection('profile')">
+                👤 My Profile
+            </button>
+
+            <button onclick="showDashboardSection('skills')">
+                💡 My Skills
+            </button>
+
+            <button onclick="showDashboardSection('projects')">
+                📁 My Projects
+            </button>
+
+            <button onclick="showDashboardSection('resume')">
+                📄 My Resume
+            </button>
+
+            <button class="logout-btn" onclick="logoutUser()">
+                🚪 Logout
+            </button>
+
+        </aside>
+
+        <main class="dashboard-main">
+
+            <button class="back-btn" onclick="showPage('homePage')">
+                ← Home
+            </button>
+
+            <!-- OVERVIEW -->
+            <div id="overviewSection" class="dashboard-section">
+
+                <p class="small-heading">YOUR CAREER SPACE</p>
+                <h1>Student Dashboard</h1>
+                <p>Welcome to your personal career workspace.</p>
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <h2>01</h2>
+                        <p>Personal Profile</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h2>02</h2>
+                        <p>Skills & Talents</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <h2>03</h2>
+                        <p>Projects</p>
+                    </div>
+
+                </div>
+
+                <div class="content-card">
+                    <h2>Build Your Career Profile</h2>
+                    <p>
+                        Add your personal information, skills, projects and
+                        resume to help recruiters understand your abilities.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- PROFILE -->
+            <div id="profileSection" class="dashboard-section hidden">
+
+                <h1>My Profile</h1>
+
+                <div class="content-card">
+
+                    <form onsubmit="saveProfile(event)">
+
+                        <label>Full Name</label>
+                        <input type="text" id="profileName"
+                               placeholder="Enter your name">
+
+                        <label>Email</label>
+                        <input type="email" id="profileEmail"
+                               placeholder="Enter email">
+
+                        <label>Phone</label>
+                        <input type="text" id="profilePhone"
+                               placeholder="Enter phone number">
+
+                        <label>About Me</label>
+                        <textarea id="profileAbout"
+                                  placeholder="Write something about yourself"></textarea>
+
+                        <button type="submit" class="primary-btn">
+                            Save Profile
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- SKILLS -->
+            <div id="skillsSection" class="dashboard-section hidden">
+
+                <h1>My Skills</h1>
+
+                <div class="content-card">
+
+                    <form onsubmit="addSkill(event)" class="inline-form">
+
+                        <input type="text" id="skillInput"
+                               placeholder="Enter a skill" required>
+
+                        <button type="submit" class="primary-btn">
+                            Add Skill
+                        </button>
+
+                    </form>
+
+                    <div id="skillsList" class="item-list"></div>
+
+                </div>
+            </div>
+
+            <!-- PROJECTS -->
+            <div id="projectsSection" class="dashboard-section hidden">
+
+                <h1>My Projects</h1>
+
+                <div class="content-card">
+
+                    <form onsubmit="addProject(event)">
+
+                        <label>Project Title</label>
+                        <input type="text" id="projectTitle"
+                               placeholder="Enter project title" required>
+
+                        <label>Project Description</label>
+                        <textarea id="projectDescription"
+                                  placeholder="Describe your project" required></textarea>
+
+                        <label>Project Link</label>
+                        <input type="url" id="projectLink"
+                               placeholder="https://example.com">
+
+                        <button type="submit" class="primary-btn">
+                            Add Project
+                        </button>
+
+                    </form>
+
+                    <div id="projectsList" class="item-list"></div>
+
+                </div>
+            </div>
+
+            <!-- RESUME -->
+            <div id="resumeSection" class="dashboard-section hidden">
+
+                <h1>My Digital Resume</h1>
+
+                <div id="resumePreview"
+                     class="content-card resume-preview">
+                    Your resume details will appear here.
+                </div>
+
+                <button class="primary-btn" onclick="printResume()">
+                    Print / Save Resume
+                </button>
+
+            </div>
+
+        </main>
+    </section>
+
+    <!-- RECRUITER PAGE -->
+    <section id="recruiterPage" class="page recruiter-page hidden">
+
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← Back to Home
+        </button>
+
+        <div class="recruiter-container">
+
+            <p class="small-heading">RECRUITER MISSION MODE</p>
+
+            <h1>Discover Talent</h1>
+
+            <p>Search for registered candidates on Career Growth.</p>
+
+            <input type="text" id="recruiterSearch"
+                   placeholder="Search candidates by name or username"
+                   oninput="searchCandidates()">
+
+            <div id="candidateList" class="candidate-list"></div>
+
+        </div>
+    </section>
+
+    <!-- CONNECT JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
